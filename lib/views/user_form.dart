@@ -10,7 +10,7 @@ class UserForm extends StatelessWidget {
     // final users = Provider.of<UsersProvider>(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Formulário'),
+        title: const Text('Formulários'),
         actions: [
           IconButton(
             onPressed: () {
