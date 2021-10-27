@@ -10,6 +10,12 @@ class UserList extends StatelessWidget {
     final users = DUMMY_USERS;
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.add),
+          ),
+        ],
         title: const Center(
           child: Text('Lista de usuários'),
         ),
