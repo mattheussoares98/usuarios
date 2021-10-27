@@ -21,6 +21,21 @@ class UserTile extends StatelessWidget {
     return ListTile(
       leading: avatar,
       title: Text(user.name),
+      subtitle: Text(user.email),
+      trailing: Expanded(
+        child: Row(
+          children: [
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.edit),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.delete),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
