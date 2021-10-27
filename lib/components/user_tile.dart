@@ -21,17 +21,31 @@ class UserTile extends StatelessWidget {
     return ListTile(
       leading: avatar,
       title: Text(user.name),
-      subtitle: Text(user.email),
-      trailing: Expanded(
+      subtitle: FittedBox(
+        child: Text(
+          user.email,
+          style: const TextStyle(
+            fontSize: 20,
+          ),
+        ),
+      ),
+      trailing: SizedBox(
+        width: 100,
         child: Row(
           children: [
             IconButton(
               onPressed: () {},
-              icon: const Icon(Icons.edit),
+              icon: const Icon(
+                Icons.edit,
+                color: Colors.orange,
+              ),
             ),
             IconButton(
               onPressed: () {},
-              icon: const Icon(Icons.delete),
+              icon: Icon(
+                Icons.delete,
+                color: Theme.of(context).errorColor,
+              ),
             ),
           ],
         ),
