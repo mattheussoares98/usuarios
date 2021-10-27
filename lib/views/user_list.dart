@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:usuarios/components/user_tile.dart';
-import 'package:usuarios/data/dummy_users.dart';
+import 'package:usuarios/provider/users_provider.dart';
 
 class UserList extends StatelessWidget {
   const UserList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final users = DUMMY_USERS;
+    final users = Provider.of<UsersProvider>(context);
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -21,9 +22,9 @@ class UserList extends StatelessWidget {
         ),
       ),
       body: ListView.builder(
-        itemCount: users.length,
+        itemCount: users.count,
         itemBuilder: (context, i) => UserTile(
-          user: users.values.elementAt(i),
+          user: users.all[i],
         ),
       ),
     );
