@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:usuarios/components/user_tile.dart';
 import 'package:usuarios/provider/users_provider.dart';
+import 'package:usuarios/routes/app_routes.dart';
 
 class UserList extends StatelessWidget {
   const UserList({Key? key}) : super(key: key);
@@ -13,7 +14,11 @@ class UserList extends StatelessWidget {
       appBar: AppBar(
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushNamed(
+                AppRoutes.USER_FORM,
+              );
+            },
             icon: const Icon(Icons.add),
           ),
         ],
