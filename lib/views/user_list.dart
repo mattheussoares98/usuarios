@@ -11,7 +11,7 @@ class UserList extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Center(
-          child: Text('Lissta de usuários'),
+          child: Text('Lista de usuários'),
         ),
       ),
       body: ListView.builder(
