@@ -3,13 +3,19 @@ import 'package:provider/provider.dart';
 import 'package:usuarios/models/users.dart';
 import 'package:usuarios/provider/users_provider.dart';
 
-class UserForm extends StatelessWidget {
+class UserForm extends StatefulWidget {
   const UserForm({Key? key}) : super(key: key);
 
   @override
+  State<UserForm> createState() => _UserFormState();
+}
+
+class _UserFormState extends State<UserForm> {
+  final _key = GlobalKey<FormState>();
+  final Map<String, String> _formData = {};
+
+  @override
   Widget build(BuildContext context) {
-    final _key = GlobalKey<FormState>();
-    final Map<String, String> _formData = {};
     final user = ModalRoute.of(context)!.settings.arguments as User;
 
     return Scaffold(
@@ -18,6 +24,10 @@ class UserForm extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
+              final user = ModalRoute.of(context)!.settings.arguments as User;
+
+              // _loadFormData();
+
               final isValid = _key.currentState!.validate();
 
               if (isValid) {
@@ -28,7 +38,7 @@ class UserForm extends StatelessWidget {
                     id: user.id,
                     name: _formData['name']!,
                     email: _formData['email']!,
-                    urlAvatar: _formData['urlAvatar'],
+                    urlAvatar: _formData['urlAvatar']!,
                   ),
                 );
 

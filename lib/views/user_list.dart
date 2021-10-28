@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:usuarios/components/user_tile.dart';
+import 'package:usuarios/models/users.dart';
 import 'package:usuarios/provider/users_provider.dart';
 import 'package:usuarios/routes/app_routes.dart';
 
@@ -10,6 +11,7 @@ class UserList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final users = Provider.of<UsersProvider>(context);
+    final User user = User(name: '', email: '');
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -17,6 +19,7 @@ class UserList extends StatelessWidget {
             onPressed: () {
               Navigator.of(context).pushNamed(
                 AppRoutes.USER_FORM,
+                arguments: user,
               );
             },
             icon: const Icon(Icons.add),

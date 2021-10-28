@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:usuarios/models/users.dart';
+import 'package:usuarios/provider/users_provider.dart';
 import 'package:usuarios/routes/app_routes.dart';
 
 class UserTile extends StatelessWidget {
@@ -45,7 +47,9 @@ class UserTile extends StatelessWidget {
               ),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Provider.of<UsersProvider>(context, listen: false).remove(user);
+              },
               icon: Icon(
                 Icons.delete,
                 color: Theme.of(context).errorColor,
