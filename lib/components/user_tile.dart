@@ -22,12 +22,10 @@ class UserTile extends StatelessWidget {
     return ListTile(
       leading: avatar,
       title: Text(user.name),
-      subtitle: FittedBox(
-        child: Text(
-          user.email,
-          style: const TextStyle(
-            fontSize: 20,
-          ),
+      subtitle: Text(
+        user.email,
+        style: const TextStyle(
+          fontSize: 12,
         ),
       ),
       trailing: SizedBox(
